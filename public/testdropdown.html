@@ -1,0 +1,64 @@
+<div class="ccms_form_element cfdiv_custom" id="style_container_div">
+<label>Choose Rank: </label><select size="1" id="Rank" class=" validate['required']" title="" type="select" name="Rank" value="-Select Your Rank-">
+    <optgroup label="-Select Your Rank-">
+    <option value="Airman">Airman</option>
+    <option value="AirmanFirstClass">Airman First Class</option>
+    <option value="SeniorAirman">Senior Airman</option>
+    <option value="StaffSergeant">Staff Sergeant</option>
+    <option value="SeniorMasterSergeant">Senior Master Sergeant</option>
+    </optgroup>
+</select><div class="clear"></div><div id="error-message-style"></div></div>
+
+<div id="Airman"  class="style-sub-1"  style="display: none;" name="stylesub1" onchange="ChangeDropdowns(this.value)">
+  <label>Which Job? </label>
+    <select id="Airman" name="Airman">
+      <option value="">-Choose A Job-</option>      
+      <option value="lvl-1 Mission Runner - Level 7a">lvl-1 Mission Runner - Level 7</option>
+      <option value="lvl-2 Mission Runner - Level 1a">lvl-2 Mission Runner - Level 1</option>      
+    </select>
+</div>
+<div id="AirmanFirstClass"  class="style-sub-1"  style="display: none;" name="stylesub1" onchange="ChangeDropdowns(this.value)">
+  <label>Which Job? </label>
+    <select id="Airman First Class" name="Airman First Class">
+    <option value="">-Choose A Job-</option>
+      <option value="Basic Ore Miner - Level 1b">Basic Ore Miner - Level 1</option>
+      <option value="Basic Ore Miner - Level 2b">Basic Ore Miner - Level 2</option>     
+    </select>
+</div>
+<div id="SeniorAirman"  class="style-sub-1"  style="display: none;" name="stylesub1" onchange="ChangeDropdowns(this.value)">
+  <label>Which Job? </label>
+    <select id="Senior Airman" name="Senior Airman">
+    <option value="">-Choose A Job-</option>
+      <option value="Basic Ore Miner - Level 1c">Basic Ore Miner - Level 1</option>
+       <option value="Basic Ore Miner - Level 2c">Basic Ore Miner - Level 2</option>
+       <option value="Basic Ore Miner - Level 3c">Basic Ore Miner - Level 3</option>     
+       <option value="lvl-4 Mission Runner - Level 6c">lvl-4 Mission Runner - Level 6</option>
+       <option value="lvl-4 Mission Runner - Level 7c">lvl-4 Mission Runner - Level 7</option>
+    </select>
+</div>
+<div id="StaffSergeant"  class="style-sub-1"  style="display: none;" name="stylesub1" onchange="ChangeDropdowns(this.value)">
+  <label>Which Job? </label>
+    <select id="Staff Sergeant" name="Staff Sergeant">
+    <option value="">-Choose A Job-</option>
+      <option value="Basic Ore Miner - Level 1d">Basic Ore Miner - Level 1</option>
+       <option value="Basic Ore Miner - Level 2d">Basic Ore Miner - Level 2</option>      
+       <option value="lvl-4 Mission Runner - Level 7d">lvl-4 Mission Runner - Level 7</option>
+    </select>
+</div>
+<div id="SeniorMasterSergeant"  class="style-sub-1"  style="display: none;" name="stylesub1" onchange="ChangeDropdowns(this.value)">
+  <label>Which Job? </label>
+    <select id="Senior Master Sergeant" name="Senior Master Sergeant">
+    <option value="">-Choose A Job-</option>
+      <option value="Basic Ore Miner - Level 1e">Basic Ore Miner - Level 1</option>      
+       <option value="lvl-4 Mission Runner - Level 6e">lvl-4 Mission Runner - Level 6</option>
+       <option value="lvl-4 Mission Runner - Level 7e">lvl-4 Mission Runner - Level 7</option>
+    </select>
+</div>
+        <div class="clear"></div><div id="error-message-style-sub-1"></div></div>
+
+        $("#Rank").change(function(){
+   correspondingID = $(this).find(":selected").val()
+   $(".style-sub-1").hide();
+   $("#" + correspondingID).show();
+
+})

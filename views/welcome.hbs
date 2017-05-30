@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+    </head>
+    <body>
+        <div class="container col-md-12">
+  <form id="target">
+<div class="container col-md-6 pull-left">
+
+  <!--title-group-->
+    <div class="form-group">
+<label for="title">Title:</label>
+  <input id="title" class="form-control" type="text" name="title" required>
+      </div>
+      <!--title-group-->
+
+<!--technology-group-->
+<div class="form-group">
+  <label>Technology 1:</label>
+  <input class="technology form-control" type="text" name="technology" required>
+  <label>Technology 2:</label>
+  <input class="technology form-control" type="text" name="technology">
+  <label>Technology 3:</label>
+  <input class="technology form-control" type="text" name="technology">
+  <label>Technology 4:</label>
+  <input class="technology form-control" type="text" name="technology">
+  <label>Technology 5:</label>
+  <input class="technology form-control" type="text" name="technology">
+</div>
+<!--technology-group-->
+
+
+<!--parent group-->
+<div class="form-group">
+  <!--city group-->
+<div class="city">
+<label>City: </label>
+<select size="1" id="rank" class="form-control" type="select" name="Rank">
+    <option>choose-your-city</option>
+    <option value="chennai">chennai</option>
+    <option value="Hyderabad">Hyderabad</option>
+    <option value="vizag">vizag</option>
+    <option value="vijayawada">vijayawada</option>
+</select>
+</div>
+<!--city group-->
+
+<!--sub city group-->
+<div class="style-sub-1 chennai"  style="display: none;" name="stylesub1">
+  <label>location:</label>
+  <div class="dropdown">
+    <select id="chennai" class="form-control" name="chennai">    
+      <option value="Navallur">Navallur</option>
+      <option value="Nungambakkam">Nungambakkam</option>      
+    </select>
+    </div>
+</div>
+<div class="style-sub-1 Hyderabad"  style="display: none;" name="stylesub1">
+  <label>location</label>
+  <div class="dropdown">
+    <select id="Hyderabad" class="form-control" name="Hyderabad">
+      <option value="Banjara hills">Banjara hills</option>
+      <option value="Gachi bowli">Gachi bowli</option>     
+    </select>
+    </div>
+</div>
+<div class="style-sub-1 vizag"  style="display: none;" name="stylesub1">
+  <label>location </label>
+  <div class="dropdown">
+    <select id="vizag" class="form-control" name="vizag">   
+       <option value="vizag">vizag</option>
+    </select>
+  </div>
+</div>
+<div class="style-sub-1 vijayawada"  style="display: none;" name="stylesub1">
+  <label>location </label>
+  <div class="dropdown">
+    <select id="vijayawada" class="form-control" name="vijayawada">
+      <option value="Gannavaram">Gannavaram</option>
+    </select>
+  </div>
+</div>
+<!--sub city group-->
+</div>
+<!--parent group-->
+</div>
+
+<!--group-start-->
+<div class="container col-md-6 pull-right">
+
+  <!--min-exp-group-->
+  <div class="form-group">
+ <label for="minexp">Min exp:</label>
+  <div class="dropdown">
+    <select id="minexp" class="form-control" name="minye">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="4">5</option>
+    <option value="4">6</option>
+    <option value="4">7</option>
+    <option value="4">8</option>
+    <option value="4">9</option>
+  </select>
+  </div>
+</div>
+<!--min-exp-group-->
+
+<!--max-exp-group-->
+<div class="form-group">
+   <label for="maxexp">Max exp:</label>
+   <div class="dropdown">
+    <select id="maxexp" class="form-control" name="maxye">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
+   </div>
+</div>
+<!--max-exp-group-->
+
+<div class="form-group">
+   <label for="description">Description:</label><textarea id="description" class="form-control" name="description" rows="10" cols="70" required></textarea>
+</div>
+
+<div class="form-group">
+   <label for="email">Email:</label><input id="email" class="form-control" type="email" name="email" required>
+</div>
+
+    <input class="btn btn-success" type="submit" value="Submit">
+    <input type="reset" class="btn btn-warning">
+
+    </div>
+    <!--group-end-->
+
+</form>
+
+<div id="dialog" style="visibility: hidden" title="Basic dialog">
+  <p style="color:blue">posted successfully</p>
+</div>
+
+ <script>
+     $("#rank").change(function(){
+   correspondingID = $(this).find(":selected").val()
+   $(".style-sub-1").hide();
+   $("." + correspondingID).show();
+
+});
+$( "#target" ).submit(function( event ) {
+       event.preventDefault(); 
+   var city=$("#rank").val();
+   console.log(city);
+   var location=$("#" + city).val();
+   console.log(location);
+ 
+   var title=$("#title").val();
+ console.log(title);
+  var minexp=parseInt($("#minexp").val());
+    console.log(minexp);
+  
+  var maxexp=parseInt($("#maxexp").val());
+  console.log(maxexp);
+  
+  var description=$("#description").val();
+  console.log(description);
+  
+  var address=$("#address").val();
+  console.log(address);
+ 
+  var email=$("#email").val();
+   console.log(email);
+  var technology = [];
+   $('.technology').each(function () {
+       if ( $(this).val() != null && $(this).val() != "" ){
+     technology.push($(this).val());
+}
+});
+console.log(technology);
+
+var career={
+    title:title,
+    technology:technology,
+    minexp:minexp,
+    maxexp:maxexp,
+    description:description,
+    city:city,
+    location:location,
+    email:email
+}
+$.ajax({
+    type:'POST',
+    url:'http://localhost:3000/career',
+    data:career,
+    success: function(data){
+        alert('career posted successfully');
+    },
+    error:function(){
+        alert('error');
+    }
+});
+
+
+});
+</script>
+</div>
+</body>
+</html>
