@@ -178,9 +178,6 @@ $( "#target" ).submit(function( event ) {
   var description=$("#description").val();
   console.log(description);
   
-  var address=$("#address").val();
-  console.log(address);
- 
   var email=$("#email").val();
    console.log(email);
   var technology = [];
@@ -201,12 +198,16 @@ var career={
     location:location,
     email:email
 }
+var careerdata=JSON.stringify(career);
 $.ajax({
     type:'POST',
     url:'http://localhost:3000/career',
-    data:career,
+    data:careerdata,
+    contentType: "application/json; charset=utf-8",
+    traditional: true,
     success: function(data){
         alert('career posted successfully');
+        console.log(JSON.stringify(career));
     },
     error:function(){
         alert('error');
