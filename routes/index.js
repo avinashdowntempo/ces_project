@@ -3,12 +3,16 @@ var router = express.Router();
 var User=require('../lib/User');
 var Career=require('../lib/Career');
 var FB = require('facebook-node');
+var path = require('path'); 
 FB.setApiVersion("v2.2");
-FB.setAccessToken('EAACEdEose0cBAIb0kgyU5Yi3pvotIfqpaKGZARtAyUVcGBOysLJWc7GN6hHOOyRnBvDSkYlV1xuWiL963Aa8mZCZAarzxnkFm7kc9cIYAaF3T78Lhy5GOXOc2bJ8YqaX4HM2zDhFaAjOJNhDRd3JwJ5WZBdSjPLUZCwCPxfgbP8dwmS405Xd8w7I4GVJ6CdwZD');
+FB.setAccessToken('EAACEdEose0cBAKTCQzaffpdS9iHfol2AqJ30dnU7BZBKVJFr3Majq18wtZCaNIeb2nt13JpiJFuJJSZBUIbbBzearJL8cXlkHHB3mx6aC4IexSqZA2Uh2CZAZCGZCvKR73mnXQdqxvEB94VEi2lp1NI3UmE9N0kEEE1tpX4zW57lYs0aOlZBJMZBHPNRaNvH1b6QZD');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+/*router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
+});*/
+router.get('/', function(req, res, next){
+res.sendFile(path.join(__dirname+'/../dist/index.html'));
 });
 router.get('/login',function(req,res){
  res.render('login');
@@ -31,6 +35,18 @@ User.findOne({username: username, password: password},function(err,user){
   res.redirect('/dashboard');
   }
 })
+});
+router.get('/logout', function(req, res) {
+      req.session.destroy(function(err) {
+     if(err)
+     {
+       return res.status(500).send();
+     }
+     else{
+       return res.status(200).send();
+     }
+  })
+        
 });
 router.get('/dashboard', function(req,res){
   if(!req.session.user){

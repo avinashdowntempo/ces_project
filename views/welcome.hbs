@@ -19,6 +19,9 @@
     </head>
     <body>
         <div class="container col-md-12">
+          <div class="page-header">
+  <h1>CES <small style="color:darkturquoise;">career portal</small></h1>
+</div>
   <form id="target">
 <div class="container col-md-6 pull-left">
 
@@ -152,6 +155,7 @@
 
     <input class="btn btn-success" type="submit" value="Submit">
     <input type="reset" class="btn btn-warning">
+    <button type="button" class="btn btn-info logout">Logout</button>
 
     </div>
     <!--group-end-->
@@ -168,6 +172,12 @@
    $(".style-sub-1").hide();
    $("." + correspondingID).show();
 
+});
+$(".logout").click(function(){
+    alert("logout");
+       $.get("http://localhost:3000/logout", function(data, status){
+        window.location = "http://localhost:3000/login";
+    });
 });
 $( "#target" ).submit(function( event ) {
        event.preventDefault(); 
@@ -217,6 +227,8 @@ $.ajax({
     success: function(data){
         alert('career posted successfully');
         console.log(JSON.stringify(career));
+        document.getElementById("target").reset();
+        $(".style-sub-1").hide(); 
     },
     error:function(){
         alert('error');
