@@ -173,6 +173,9 @@
    $("." + correspondingID).show();
 
 });
+$(".btn-warning").click(function(){
+  $(".style-sub-1").hide(); 
+});
 $(".logout").click(function(){
     alert("logout");
        $.get("http://localhost:3000/logout", function(data, status){
