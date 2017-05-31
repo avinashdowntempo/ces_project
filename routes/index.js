@@ -4,7 +4,7 @@ var User=require('../lib/User');
 var Career=require('../lib/Career');
 var FB = require('facebook-node');
 FB.setApiVersion("v2.2");
-FB.setAccessToken('EAACEdEose0cBAIYzGQI9VtZCFYcJfFOjuWmd24DtAEHZCtCO9ZC7ES5t6SgkBRxDLRljMJO4ZCOaZAfkCMGKp1gvWgzZBl383aR9X7AvLUhLRBiGrtNAh0Yx9eFThUkIYI4jz2KBzb1tDXeLNqwBHOhyMkzu7X7MmxHShneITPnf2dcT7M0xHVFd0ZCvhVigXsZD');
+FB.setAccessToken('EAACEdEose0cBAIb0kgyU5Yi3pvotIfqpaKGZARtAyUVcGBOysLJWc7GN6hHOOyRnBvDSkYlV1xuWiL963Aa8mZCZAarzxnkFm7kc9cIYAaF3T78Lhy5GOXOc2bJ8YqaX4HM2zDhFaAjOJNhDRd3JwJ5WZBdSjPLUZCwCPxfgbP8dwmS405Xd8w7I4GVJ6CdwZD');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -37,7 +37,14 @@ router.get('/dashboard', function(req,res){
     res.redirect('/login');
   }
   res.render('welcome');
+});
+router.get('/career', function(req, res, next){
+Career.find(function(err, docs){
+	console.log(docs);
+res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(docs));
 })
+});
 router.post('/career', function(req,res){
   var title=req.body.title;
   var technology=req.body.technology;

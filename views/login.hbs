@@ -1,7 +1,23 @@
 <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
 <style>
+    
+    body{
+        background-color: #085a7a;
+        color: white;
+         text-align: -webkit-center;
+    }
 form {
-    border: 3px solid #f1f1f1;
+    border: 2px solid #40e8f7;
+        border-radius: 23px;
+            color: white;
+                width: 600px;
 }
 
 input[type=text], input[type=password] {
@@ -20,7 +36,9 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+        width: 50%;
+    border-radius: 25px;
+}
 }
 
 button:hover {
@@ -40,10 +58,9 @@ button:hover {
 
 img.avatar {
     width: 40%;
-    border-radius: 50%;
-}
+   }
 
-.container {
+.container2 {
     padding: 16px;
 }
 
@@ -51,7 +68,10 @@ span.psw {
     float: right;
     padding-top: 16px;
 }
-
+img.avatar {
+    width: 100px;
+    height: 74px;
+}
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
     span.psw {
@@ -63,23 +83,24 @@ span.psw {
     }
 }
 </style>
+</head>
 <body>
 
-<h2>Login Form</h2>
+
 
 <form action="http://localhost:3000/login" method="post">
   <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    <img src="/images/CES-Logo.png" alt="Avatar" class="avatar">
   </div>
 
-  <div class="container">
+  <div class="container2">
     <label><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="username" required>
+    <input class="form-control" type="text" placeholder="Enter Username" name="username" required>
 
     <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
+    <input class="form-control" type="password" placeholder="Enter Password" name="password" required>
         
-    <button type="submit">Login</button>
+    <button type="submit">Login</button><br>
     <input type="checkbox" checked="checked"> Remember me
   </div>
 
